@@ -46,6 +46,13 @@
             font-size: 18px;
             font-weight: bold;
         }
+        .limpiar {
+            margin-top: 10px;
+            background-color: #f44336;
+        }
+        .limpiar:hover {
+            background-color: #d32f2f;
+        }
     </style>
 </head>
 <body>
@@ -86,6 +93,9 @@
     <button onclick="calcularComida()">Calcular</button>
 
     <div class="result" id="resultado"></div>
+
+    <!-- Botón de limpiar datos -->
+    <button class="limpiar" onclick="limpiarDatos()">Limpiar datos</button>
 </div>
 
 <script>
@@ -123,6 +133,19 @@
         }
 
         document.getElementById('resultado').innerHTML = resultadoTexto;
+    }
+
+    function limpiarDatos() {
+        // Limpiar campos del formulario
+        document.getElementById('nombre').value = '';
+        document.getElementById('tipo').value = 'perro';
+        document.getElementById('peso').value = '';
+        document.getElementById('porcentaje').value = '2';
+        document.getElementById('esterilizado').value = '1.6';
+        document.getElementById('vecesComida').value = '2';
+
+        // Limpiar el resultado
+        document.getElementById('resultado').innerHTML = '';
     }
 </script>
 
