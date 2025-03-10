@@ -65,8 +65,8 @@
 
     <label for="tipo">Tipo de mascota:</label>
     <select id="tipo">
-        <option value="perro">Perro</option>
-        <option value="gato">Gato</option>
+        <option value="perro 🐶">Perro</option>
+        <option value="gato 🐱 ">Gato</option>
     </select>
 
     <label for="peso">Peso de la mascota (kg):</label>
@@ -123,13 +123,13 @@
 
         if (vecesComida === 2) {
             resultadoTexto += `Dividido en 2 porciones:<br>
-                              - Mañana: ${porcion} gramos<br>
-                              - Noche: ${porcion} gramos`;
+                              - Mañana:  ${porcion} gramos 🌞<br>
+                              - Noche: ${porcion} gramos`🌙;
         } else if (vecesComida === 3) {
             resultadoTexto += `Dividido en 3 porciones:<br>
-                              - Mañana: ${porcion} gramos<br>
-                              - Tarde: ${porcion} gramos<br>
-                              - Noche: ${porcion} gramos`;
+                              - Mañana: ${porcion} gramos 🌞<br>
+                              - Tarde: ${porcion} gramos 🌅<br>
+                              - Noche: ${porcion} gramos`🌙;
         }
 
         document.getElementById('resultado').innerHTML = resultadoTexto;
