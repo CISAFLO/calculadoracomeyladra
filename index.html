@@ -58,15 +58,15 @@
 <body>
 
 <div class="container">
-    <h1>Calculadora de Comida para Mascotas</h1>
+    <h1>Calculadora de Comida Casera para Mascotas 🐾</h1>
 
     <label for="nombre">Nombre de la mascota:</label>
     <input type="text" id="nombre" placeholder="Ej: Firulais">
 
     <label for="tipo">Tipo de mascota:</label>
     <select id="tipo">
-        <option value="perro 🐶">Perro</option>
-        <option value="gato 🐱 ">Gato</option>
+        <option value="perro">Perro 🐶</option>
+        <option value="gato">Gato 🐱</option>
     </select>
 
     <label for="peso">Peso de la mascota (kg):</label>
@@ -74,28 +74,28 @@
 
     <label for="porcentaje">Porcentaje de peso corporal a consumir:</label>
     <select id="porcentaje">
-        <option value="2">2% (En forma, con sobrepeso o muy gordo)</option>
-        <option value="3">3% (Muy delgado o bajo de peso)</option>
+        <option value="2">2% (En forma, con sobrepeso o gordo) 🐕</option>
+        <option value="3">3% (Muy delgado o bajo de peso) 🐈</option>
     </select>
 
     <label for="esterilizado">¿Está esterilizado/a?</label>
     <select id="esterilizado">
-        <option value="1.6">Sí</option>
-        <option value="1.8">No</option>
+        <option value="1.6">Sí ✔️</option>
+        <option value="1.8">No ❌</option>
     </select>
 
     <label for="vecesComida">¿Cuántas veces al día come?</label>
     <select id="vecesComida">
-        <option value="2">2 veces (mañana y noche)</option>
-        <option value="3">3 veces (mañana, tarde y noche)</option>
+        <option value="2">2 veces (mañana y noche) 🌞🌜</option>
+        <option value="3">3 veces (mañana, tarde y noche) 🌞🌆🌜</option>
     </select>
 
-    <button onclick="calcularComida()">Calcular</button>
+    <button onclick="calcularComida()">Calcular 🐾</button>
 
     <div class="result" id="resultado"></div>
 
     <!-- Botón de limpiar datos -->
-    <button class="limpiar" onclick="limpiarDatos()">Limpiar datos</button>
+    <button class="limpiar" onclick="limpiarDatos()">Limpiar datos 🧹</button>
 </div>
 
 <script>
@@ -118,18 +118,18 @@
         // Dividir la comida en porciones según las veces al día
         const porcion = Math.round(comidaDiaria / vecesComida);
 
-        // Mostrar el resultado
-        let resultadoTexto = `${nombre} (${tipo}) debe consumir aproximadamente ${comidaDiaria} gramos de comida casera al día.<br>`;
+        // Mostrar el resultado con emojis
+        let resultadoTexto = `🐾 ${nombre} (${tipo === "perro" ? "🐶 Perro" : "🐱 Gato"}) debe consumir aproximadamente <strong>${comidaDiaria} gramos</strong> de comida casera al día. 🍽️<br>`;
 
         if (vecesComida === 2) {
             resultadoTexto += `Dividido en 2 porciones:<br>
-                              - Mañana:  ${porcion} gramos 🌞<br>
-                              - Noche: ${porcion} gramos`🌙;
+                              - 🌞 Mañana: ${porcion} gramos<br>
+                              - 🌜 Noche: ${porcion} gramos`;
         } else if (vecesComida === 3) {
             resultadoTexto += `Dividido en 3 porciones:<br>
-                              - Mañana: ${porcion} gramos 🌞<br>
-                              - Tarde: ${porcion} gramos 🌅<br>
-                              - Noche: ${porcion} gramos`🌙;
+                              - 🌞 Mañana: ${porcion} gramos<br>
+                              - 🌆 Tarde: ${porcion} gramos<br>
+                              - 🌜 Noche: ${porcion} gramos`;
         }
 
         document.getElementById('resultado').innerHTML = resultadoTexto;
