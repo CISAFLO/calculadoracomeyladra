@@ -86,6 +86,7 @@
 
     <label for="vecesComida">¿Cuántas veces al día come?</label>
     <select id="vecesComida">
+        <option value="1">1 vez al día 🍽️</option>
         <option value="2">2 veces (mañana y noche) 🌞🌜</option>
         <option value="3">3 veces (mañana, tarde y noche) 🌞🌆🌜</option>
     </select>
@@ -118,19 +119,33 @@
         // Dividir la comida en porciones según las veces al día
         const porcion = Math.round(comidaDiaria / vecesComida);
 
+        // Porcentajes recomendados de proteínas, vegetales y carbohidratos
+        const proteinas = Math.round(comidaDiaria * 0.45); // 45% de proteínas
+        const vegetales = Math.round(comidaDiaria * 0.25); // 25% de vegetales
+        const carbohidratos = Math.round(comidaDiaria * 0.30); // 30% de carbohidratos
+
         // Mostrar el resultado con emojis
         let resultadoTexto = `🐾 ${nombre} (${tipo === "perro" ? "🐶 Perro" : "🐱 Gato"}) debe consumir aproximadamente <strong>${comidaDiaria} gramos</strong> de comida casera al día. 🍽️<br>`;
 
-        if (vecesComida === 2) {
+        if (vecesComida === 1) {
+            resultadoTexto += `Dividido en 1 porción:<br>
+                              - 🍽️ Todo en una sola comida: ${comidaDiaria} gramos<br>`;
+        } else if (vecesComida === 2) {
             resultadoTexto += `Dividido en 2 porciones:<br>
                               - 🌞 Mañana: ${porcion} gramos<br>
-                              - 🌜 Noche: ${porcion} gramos`;
+                              - 🌜 Noche: ${porcion} gramos<br>`;
         } else if (vecesComida === 3) {
             resultadoTexto += `Dividido en 3 porciones:<br>
                               - 🌞 Mañana: ${porcion} gramos<br>
                               - 🌆 Tarde: ${porcion} gramos<br>
-                              - 🌜 Noche: ${porcion} gramos`;
+                              - 🌜 Noche: ${porcion} gramos<br>`;
         }
+
+        // Agregar porcentajes recomendados
+        resultadoTexto += `<br>📊 <strong>Distribución recomendada:</strong><br>
+                          - 🥩 Proteínas: ${proteinas} gramos (45%)<br>
+                          - 🥦 Vegetales: ${vegetales} gramos (25%)<br>
+                          - 🍚 Carbohidratos: ${carbohidratos} gramos (30%)`;
 
         document.getElementById('resultado').innerHTML = resultadoTexto;
     }
@@ -142,7 +157,7 @@
         document.getElementById('peso').value = '';
         document.getElementById('porcentaje').value = '2';
         document.getElementById('esterilizado').value = '1.6';
-        document.getElementById('vecesComida').value = '2';
+        document.getElementById('vecesComida').value = '1';
 
         // Limpiar el resultado
         document.getElementById('resultado').innerHTML = '';
