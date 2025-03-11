@@ -16,11 +16,17 @@
             border: 1px solid #ccc;
             border-radius: 10px;
             background-color: #f9f9f9;
+            text-align: center;
+        }
+        .logo {
+            width: 150px; /* Ajusta el tamaño del logo */
+            margin-bottom: 10px;
         }
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
+            text-align: left;
         }
         input[type="text"], input[type="number"], select {
             width: 100%;
@@ -45,6 +51,7 @@
             margin-top: 20px;
             font-size: 18px;
             font-weight: bold;
+            text-align: left;
         }
         .limpiar {
             margin-top: 10px;
@@ -58,7 +65,9 @@
 <body>
 
 <div class="container">
-    <h1>Calculadora de Comida Casera para Mascotas 🐾</h1>
+    <!-- Logo de "La Dray Come" -->
+    <img src="https://i.postimg.cc/jSB24r8q/ladra-y-come-Logo3.png" alt="Logo de La Dray Come" class="logo">
+    <h1>Calculadora de Comida Casera para Mascotas</h1>
 
     <label for="nombre">Nombre de la mascota:</label>
     <input type="text" id="nombre" placeholder="Ej: Firulais">
