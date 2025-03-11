@@ -66,7 +66,7 @@
 
 <div class="container">
     <!-- Logo de "La Dray Come" -->
-    <img src="https://i.postimg.cc/jSB24r8q/ladra-y-come-Logo3.png" alt="Logo de La Dray Come" class="logo">
+    <img src="https://i.postimg.cc/jSB24r8q/ladra-y-come-Logo3.png" alt="Logo de Ladra y Come" class="logo">
     <h1>Calculadora de Comida Casera para Mascotas</h1>
 
     <label for="nombre">Nombre de la mascota:</label>
@@ -129,9 +129,14 @@
         const porcion = Math.round(comidaDiaria / vecesComida);
 
         // Porcentajes recomendados de proteínas, vegetales y carbohidratos
-        const proteinas = Math.round(comidaDiaria * 0.45); // 45% de proteínas
-        const vegetales = Math.round(comidaDiaria * 0.25); // 25% de vegetales
-        const carbohidratos = Math.round(comidaDiaria * 0.30); // 30% de carbohidratos
+        const proteinas = Math.round(comidaDiaria * 0.50); // 50% de proteínas
+        const vegetales = Math.round(comidaDiaria * 0.30); // 30% de vegetales
+        const carbohidratos = Math.round(comidaDiaria * 0.20); // 20% de carbohidratos
+
+        // Dividir la distribución recomendada según las veces al día
+        const porcionProteinas = Math.round(proteinas / vecesComida);
+        const porcionVegetales = Math.round(vegetales / vecesComida);
+        const porcionCarbohidratos = Math.round(carbohidratos / vecesComida);
 
         // Mostrar el resultado con emojis
         let resultadoTexto = `🐾 ${nombre} (${tipo === "perro" ? "🐶 Perro" : "🐱 Gato"}) debe consumir aproximadamente <strong>${comidaDiaria} gramos</strong> de comida casera al día. 🍽️<br>`;
@@ -150,11 +155,35 @@
                               - 🌜 Noche: ${porcion} gramos<br>`;
         }
 
-        // Agregar porcentajes recomendados
-        resultadoTexto += `<br>📊 <strong>Distribución recomendada:</strong><br>
-                          - 🥩 Proteínas: ${proteinas} gramos (45%)<br>
-                          - 🥦 Vegetales: ${vegetales} gramos (25%)<br>
-                          - 🍚 Carbohidratos: ${carbohidratos} gramos (30%)`;
+        // Agregar distribución recomendada dividida por porciones
+        resultadoTexto += `<br>📊 <strong>Distribución recomendada por comida:</strong><br>`;
+        if (vecesComida === 1) {
+            resultadoTexto += `- 🥩 Proteínas: ${proteinas} gramos (50%)<br>
+                              - 🥦 Vegetales: ${vegetales} gramos (30%)<br>
+                              - 🍚 Carbohidratos: ${carbohidratos} gramos (20%)<br>`;
+        } else if (vecesComida === 2) {
+            resultadoTexto += `- 🌞 Mañana:<br>
+                                🥩 Proteínas: ${porcionProteinas} gramos<br>
+                                🥦 Vegetales: ${porcionVegetales} gramos<br>
+                                🍚 Carbohidratos: ${porcionCarbohidratos} gramos<br>
+                              - 🌜 Noche:<br>
+                                🥩 Proteínas: ${porcionProteinas} gramos<br>
+                                🥦 Vegetales: ${porcionVegetales} gramos<br>
+                                🍚 Carbohidratos: ${porcionCarbohidratos} gramos<br>`;
+        } else if (vecesComida === 3) {
+            resultadoTexto += `- 🌞 Mañana:<br>
+                                🥩 Proteínas: ${porcionProteinas} gramos<br>
+                                🥦 Vegetales: ${porcionVegetales} gramos<br>
+                                🍚 Carbohidratos: ${porcionCarbohidratos} gramos<br>
+                              - 🌆 Tarde:<br>
+                                🥩 Proteínas: ${porcionProteinas} gramos<br>
+                                🥦 Vegetales: ${porcionVegetales} gramos<br>
+                                🍚 Carbohidratos: ${porcionCarbohidratos} gramos<br>
+                              - 🌜 Noche:<br>
+                                🥩 Proteínas: ${porcionProteinas} gramos<br>
+                                🥦 Vegetales: ${porcionVegetales} gramos<br>
+                                🍚 Carbohidratos: ${porcionCarbohidratos} gramos<br>`;
+        }
 
         document.getElementById('resultado').innerHTML = resultadoTexto;
     }
